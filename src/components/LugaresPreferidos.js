@@ -10,7 +10,7 @@ import { Avatar } from "@rneui/themed";
 
 const LugaresPreferidos = (props) =>{
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const lugares = props.lugaresPreferidos;
     const [objetosLugares, setObjetosLugares] = useState([]);

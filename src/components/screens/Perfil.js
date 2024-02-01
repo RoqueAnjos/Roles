@@ -95,7 +95,6 @@ const Perfil = ({ navigation, route }) => {
         <View style={styles.info}>
           <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Bio: </Text><Text style={styles.infoText}>{usuario.Bio}</Text></View>
           <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Hobbies: </Text><Text style={styles.infoText}>{usuario.Hobbies.join(', ')}</Text></View>
-          <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Me chame para: </Text><Text style={styles.infoText}>{usuario['Me chame para'].join(', ')}</Text></View>
           <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Receber convites de: </Text><Text style={styles.infoText}>{usuario['Receber convites de']}</Text></View>
         </View>
 

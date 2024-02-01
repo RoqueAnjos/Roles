@@ -21,7 +21,7 @@ import axios from 'axios';
 const Radar = ({navigation, route}) => {
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const apiKey = 'AIzaSyCYdpUN-cqPxtKuUalYay4v_GdKZi-I2ns';
 
@@ -359,7 +359,7 @@ const Radar = ({navigation, route}) => {
           {selectedButton==='Lugares' ?
             <View>
               <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-                <Text style={styles.titleSections}>Seus lugares recentes</Text>
+                <Text style={styles.titleSections}>Seus lugares mais visitados</Text>
                 <IconButton
                     iconColor="#000"
                     icon="arrow-right"

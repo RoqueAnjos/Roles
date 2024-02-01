@@ -12,7 +12,7 @@ import { useFocusEffect } from '@react-navigation/native';
 
 const Reacoes = (props) =>{
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
     const usuario = props.usuario;
 
     const idPost = props.idPost;

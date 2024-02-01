@@ -8,7 +8,6 @@ import { arrayRemove, arrayUnion, doc, updateDoc, getFirestore } from 'firebase/
 import { firebaseConfig } from '../../../firebaseConfig';
 import { initializeApp } from 'firebase/app';
 import CardComentario from "../CardComentario";
-import { Video } from "expo-av";
 import VideoPlayer from "../VideoPlayer";
 
 const InfoPlace = ({ route }) => {
@@ -26,11 +25,16 @@ const InfoPlace = ({ route }) => {
         }
       };
     }, [videoStatus]);
+
+    console.log('comentarios');
+    console.log(lugar.comentarios);
     
-    const comentarios = lugar.comentarios.length>0 ? Object.values(lugar.comentarios) : undefined;
+    const comentarios = lugar.comentarios !==null && lugar.comentarios !==undefined ? Object.values(lugar.comentarios) : undefined;
+
+    console.log(comentarios)
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const fetchFonts = () => {
     return Font.loadAsync({

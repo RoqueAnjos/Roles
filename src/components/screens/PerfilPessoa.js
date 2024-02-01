@@ -27,7 +27,7 @@ const PerfilPessoa = ({ navigation, route }) => {
   };
 
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  const db = getFirestore(app, 'maindb');
   
   const {idPessoa} = route.params;
   const [usuario, setUsuario] = useState({});
@@ -70,7 +70,7 @@ const PerfilPessoa = ({ navigation, route }) => {
             console.log('O documento não existe.');
             }
         } catch (error) {
-          console.error('Erro ao buscar os dados do Firestore:', error);
+          console.error('Tela PerfilPessoa. Erro ao buscar os dados do Firestore:', error);
         }
 
         await fetchFonts();
@@ -111,7 +111,6 @@ const PerfilPessoa = ({ navigation, route }) => {
         <View style={styles.info}>
           <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Bio: </Text><Text style={styles.infoText}>{usuario.Bio}</Text></View>
           <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Hobbies: </Text><Text style={styles.infoText}>{usuario.Hobbies.join(', ')}</Text></View>
-          <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Me chame para: </Text><Text style={styles.infoText}>{usuario['Me chame para'].join(', ')}</Text></View>
           <View style={{flexDirection: 'row'}}><Text style={{fontFamily: 'CircularSpotifyText-Bold', fontSize: 14}}>Receber convites de: </Text><Text style={styles.infoText}>{usuario['Receber convites de']}</Text></View>
         </View>
 

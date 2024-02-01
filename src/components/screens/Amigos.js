@@ -14,7 +14,7 @@ import { Searchbar } from 'react-native-paper';
 
 const Amigos = ({navigation, idAmigos}) => {
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const [searchQuery, setSearchQuery] = React.useState('');
 
@@ -70,7 +70,7 @@ const Amigos = ({navigation, idAmigos}) => {
             setAmigos(amigosData);
 
           } catch (error) {
-            console.error('Erro ao buscar os dados do Firestore:', error);
+            console.error('Tela Amigos. Erro ao buscar os dados do Firestore:', error);
           }
         };
   

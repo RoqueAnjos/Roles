@@ -14,7 +14,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const CardLugar = ({ navigation, mix, usuario, tela }) => {
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     var lugar = mix;
 
@@ -107,28 +107,24 @@ const CardLugar = ({ navigation, mix, usuario, tela }) => {
 
     const iconeCategoria = ()=>{
       switch(lugar.categoria){
-        case 'Bar e restaurante':
+        case 'Bares e restaurantes':
           return <FontAwesome5 name={"utensils"} size={16} color="black" />
-        case 'Conveniência':
+        case 'Conveniências':
           return <FontAwesome5 name={"glass-cheers"} size={16} color="black" />
-        case 'Parque de diversões':
+        case 'Parques de diversão':
           return <Icon source="ferris-wheel" size={16} color="black" />
         case 'Bosques e Parques':
           return <Foundation name="trees" size={16} color="black" />
-        case 'Centro Turístico':
+        case 'Centros Turísticos':
           return <FontAwesome5 name={"camera-retro"} size={16} color="black" />
-        case 'Lanchonete':
+        case 'Cafeterias e Lanchonetes':
           return <FontAwesome5 name={"hamburger"} size={16} color="black" />
-        case 'Esporte e Lazer':
+        case 'Esportes e Lazer':
           return <FontAwesome5 name={"swimmer"} size={16} color="black" />
-        case 'Sorveteria e Bebidas Geladas':
+        case 'Sorveterias e Bebidas Geladas':
           return <Icon source="ice-cream" size={16} color="black" />
-        case 'Academia':
+        case 'Academias':
           return <FontAwesome5 name={"dumbbell"} size={16} color="black" />
-        case 'Cafeteria':
-          return <FontAwesome5 name={"mug-hot"} size={16} color="black" />
-        case 'Pizzaria':
-          return <FontAwesome5 name={"pizza-slice"} size={16} color="black" />
         case 'Clubes e Resorts':
           return <FontAwesome5 name={"cocktail"} size={16} color="black" />
         case 'Chácaras e Sítios':

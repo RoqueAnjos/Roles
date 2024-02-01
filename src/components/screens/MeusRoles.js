@@ -60,7 +60,7 @@ const MeusRoles = ({navigation, route}) => {
     };
     
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const [modeVisibility, setModeVisibility] = useState('list');
     const [showProgress, setShowProgress] = useState(true);
@@ -106,7 +106,7 @@ const MeusRoles = ({navigation, route}) => {
             }
 
           } catch (error) {
-            console.error('Erro ao buscar os dados do Firestore:', error);
+            console.error('Tela MeusRoles. Erro ao buscar os dados do Firestore:', error);
           }
         };
   
@@ -164,10 +164,6 @@ const MeusRoles = ({navigation, route}) => {
         
     }, [roles])
     
-
-    const convidarAmigos = (idrole) =>{
-
-    }
 
     const [open, setOpen] = useState(false);
 
@@ -350,7 +346,7 @@ const MeusRoles = ({navigation, route}) => {
                                             
                                             <View style={{ flexDirection: 'row', marginTop:1}}>
                                                 <FontAwesome name="map-marker" size={20} color="black" style={{ marginRight: 8, marginBottom:2 }}/>
-                                                <Text style={{fontFamily: 'CircularSpotifyText-Book', fontSize: 13}}>{role.local}</Text>
+                                                <Text style={{fontFamily: 'CircularSpotifyText-Book', fontSize: 13}}>{role.local}, {role.cidade}-{role.estado}</Text>
                                             </View>
 
                                             <View style={{ flexDirection: 'row', marginTop: 5}}>

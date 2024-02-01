@@ -35,7 +35,7 @@ const ChatRoom = ({ route }) => {
     const [user, setUser] = useState();
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const [recording, setRecording] = useState(false);
     const [seconds, setSeconds] = useState(0);

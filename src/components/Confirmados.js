@@ -12,7 +12,7 @@ import * as Font from 'expo-font';
 
 const Confirmados = ({navigation, idAmigos, organizadores}) => {
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const [fontLoaded, setFontLoaded] = useState(false);
 
@@ -48,7 +48,8 @@ const Confirmados = ({navigation, idAmigos, organizadores}) => {
             setAmigos(amigosData);
 
           } catch (error) {
-            console.error('Erro ao buscar os dados do Firestore:', error);
+
+            console.error('tela confirmados. Erro ao buscar os dados do Firestore:', error);
           }
         };
   

@@ -25,7 +25,7 @@ const Explorar = ({props, navigation}) =>{
     const [searchResultsRoles, setSearchResultsRoles] = useState([]);
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const [usuario, setUsuario] = useState('');
 
@@ -49,16 +49,15 @@ const Explorar = ({props, navigation}) =>{
 
     const [categorias, setCategorias] = useState([
         "Sorveterias e Bebidas Geladas",
-        "Pizzarias",
         "Parques de diversão",
         "Esportes e lazer",
         "Conveniências",
         "Clubes e Resorts",
         "Chácaras e Sítios",
         "Centros turísticos",
-        "Cafeterias e lanchonetes",
-        "Bosques e parques",
-        "Bares e restaurantes",
+        "Cafeterias e Lanchonetes",
+        "Bosques e Parques",
+        "Bares e Restaurantes",
         "Academias",
     ])
 

@@ -56,7 +56,7 @@ const Atividades = (props) =>{
 
             setPosts(loadedAllPosts);
         }catch (err){
-            console.error('Erro ao buscar os dados do Firestore:', err);
+            console.error('Tela Atividades. Erro ao buscar os dados do Firestore:', err);
         }
     };    
 
@@ -84,7 +84,7 @@ const Atividades = (props) =>{
                         console.log(loadedOwnPosts)
                         setPosts(loadedOwnPosts);
                     }catch (err){
-                        console.error('Erro ao buscar os dados do Firestore:', err);
+                        console.error('Tela Atividades. Erro ao buscar os dados do Firestore:', err);
                     }
                 }
                 loadOwnPosts();
@@ -159,7 +159,7 @@ const Atividades = (props) =>{
 
     return(
         <>
-        {
+        {posts !== undefined ?
             posts.map(item =>
                 <View style={styles.role} key={item.id}>
                     {showProgress?
@@ -211,6 +211,7 @@ const Atividades = (props) =>{
                     
                 </View>
             )
+            : null
         }
         </>
             

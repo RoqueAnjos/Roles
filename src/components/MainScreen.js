@@ -38,7 +38,7 @@ const MainScreen = ({navigation}) => {
     };
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const [userValues, setUserValues] = useState({});
 
@@ -61,10 +61,9 @@ const MainScreen = ({navigation}) => {
             // Adicione os valores ao objeto
             userValues.Bio = await userData.Bio;
             userValues.Hobbies = await userData.Hobbies;
-            userValues['Me chame para'] =await userData['Me chame para'];
             userValues['Receber convites de'] =await userData['Receber convites de'];
             userValues['meus lugares'] =await userData['meus lugares'];
-            userValues['meus rolês'] =await userData['meus rolês'];
+            userValues['meus rolês'] =await userData['meusRoles'];
             userValues.Whatsapp =await userData.Whatsapp;
             userValues.amigos =await userData.amigos;
             userValues.facebook =await userData.facebook;
@@ -100,8 +99,7 @@ const MainScreen = ({navigation}) => {
             );
 
             console.log(imagensAmigos);
-            
-            if(await AsyncStorage.getItem('meusRoles')!==null)  await AsyncStorage.setItem('meusRoles', JSON.stringify(rolesData));
+            await AsyncStorage.setItem('meusRoles', JSON.stringify(rolesData));
             if(await AsyncStorage.getItem('imagensAmigos')!==null)  await AsyncStorage.setItem('imagensAmigos', JSON.stringify(imagensAmigos));
 
           } else {
@@ -109,7 +107,7 @@ const MainScreen = ({navigation}) => {
           }
 
         } catch (error) {
-          console.error('Erro ao buscar os dados do Firestore:', error);
+          console.error('MainScreen. Erro ao buscar os dados do Firestore:', error);
         }
       };
 

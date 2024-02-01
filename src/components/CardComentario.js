@@ -10,7 +10,7 @@ import * as Font from 'expo-font';
 const CardComentario = ({ mix, index }) => {
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = getFirestore(app, 'maindb');
 
     const [nome, setNome] = useState('');
     const [imagem, setImagem]= useState('');
